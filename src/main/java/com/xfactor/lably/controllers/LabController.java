@@ -48,7 +48,7 @@ public class LabController {
         boolean f = false;
 
         for(Lab a: labs){
-            if(a.getUsername().equals(username)){
+            if(a.getName().equals(name)){
                 f = true;
                 ad.add(a);
             }              
