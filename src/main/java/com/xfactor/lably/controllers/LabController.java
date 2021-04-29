@@ -28,7 +28,7 @@ public class LabController {
     }
 
     @PostMapping("/addLab")
-    public Lab addLab(@RequestBody Admin lab) {
+    public Lab addLab(@RequestBody Lab lab) {
 /*      String name = admin.getName();
         String username = admin.getUsername();
         String password = admin.getPassword();
@@ -37,7 +37,7 @@ public class LabController {
         admin.setUsername(username);
         admin.setPassword(password);
  */
-        admins.add(lab);
+        labs.add(lab);
         return lab;
     }
 
