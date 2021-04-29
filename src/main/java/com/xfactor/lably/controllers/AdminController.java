@@ -30,14 +30,7 @@ public class AdminController {
 
     @PostMapping("/addAdmin")
     public Admin addAdmin(@RequestBody Admin admin) {
-/*      String name = admin.getName();
-        String username = admin.getUsername();
-        String password = admin.getPassword();
 
-        admin.setName(name);
-        admin.setUsername(username);
-        admin.setPassword(password);
- */
         admins.add(admin);
         return admin;
     }
