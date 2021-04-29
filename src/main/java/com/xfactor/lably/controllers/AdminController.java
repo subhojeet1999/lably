@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.xfactor.lably.entity.Lab;
-import com.xfactor.lably.entity.Tests;
+
 import com.xfactor.lably.entity.Admin;
-import com.xfactor.lably.entity.Customer;
+
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,13 +17,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping("/admin")
+public class AdminController {
 
-    ArrayList<Lab> labs = new ArrayList<>();
+    ArrayList<Admin> admins = new ArrayList<>();
 
     // @RequestMapping(method = RequestMethod.GET)
-    @GetMapping
+ /*   @GetMapping
     public String hello() {
         return "Greetings from XFACTOR!!!";
     }
@@ -53,29 +52,41 @@ public class TestController {
         arrayList.add(name);
         arrayList.add(age);
         return arrayList;
+    }*/
+
+    @GetMapping("/getAdmin")
+    public ArrayList<Admin> getAdmin() {
+        return admins;
     }
 
-    @GetMapping("/getLabs")
-    public ArrayList<Lab> getLabs() {
-        return labs;
+    @PostMapping("/addAdmin")
+    public Admin addAdmin(@RequestBody Admin admin) {
+/*      String name = admin.getName();
+        String username = admin.getUsername();
+        String password = admin.getPassword();
+
+        admin.setName(name);
+        admin.setUsername(username);
+        admin.setPassword(password);
+ */
+        admins.add(admin);
+        return admin;
     }
 
-    @PostMapping("/addLab")
-    public Lab addLab(@RequestBody Lab lab) {
-        String name = lab.getName();
-        String address = lab.getAddress();
-        String phone = lab.getPhone();
-        String pincode = lab.getPincode();
-        name = "NAME - " + name + "\n";
-        address = "ADDRESS - " + address + "\n";
-        phone = "PHONE - " + phone + "\n";
-        pincode = "PINCODE - " + pincode + "\n";
-        lab.setName(name);
-        lab.setAddress(address);
-        lab.setPhone(phone);
-        lab.setPincode(pincode);
-        labs.add(lab);
-        return lab;
+    @GetMapping("/search")
+    public ArrayList<Admin> searchAdmin(@RequestParam String username){
+
+        ArrayList<Admin> ad = new ArrayList<>();
+        boolean f = false;
+
+        for(Admin a: admins){
+            if(a.getUsername().equals(username)){
+                f = true;
+                ad.add(a);
+            }              
+        }
+        if(f==true) return ad;
+        else return null;
     }
 
    /* @PostMapping("/addTests")
