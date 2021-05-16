@@ -3,6 +3,7 @@ package com.xfactor.lably.controllers;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 import com.xfactor.lably.entity.Lab;
 import com.xfactor.lably.entity.Tests;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequestMapping("/test")
@@ -24,7 +26,7 @@ public class TestController {
     ArrayList<Lab> labs = new ArrayList<>();
 
     // @RequestMapping(method = RequestMethod.GET)
-    @GetMapping
+    @GetMapping("/hello")
     public String hello() {
         return "Greetings from XFACTOR!!!";
     }

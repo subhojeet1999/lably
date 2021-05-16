@@ -1,12 +1,34 @@
 package com.xfactor.lably.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+
+
+@Entity
+@Table(name = "tbl_tests")
 public class Tests {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    private Long id;
 
     private String name;
 
     private String description;
 
     private double price;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
